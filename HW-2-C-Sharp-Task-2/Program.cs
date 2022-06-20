@@ -68,7 +68,7 @@ namespace HW_2_C_Sharp_Task_2
                 }
                 minCol = 0;
             }
-            Console.WriteLine($"Summ = {summ}");
+            Console.WriteLine($"Summ numbers between min amd max = {summ}");
         }
     }
 }
