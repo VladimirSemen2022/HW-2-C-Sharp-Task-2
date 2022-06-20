@@ -45,18 +45,29 @@ namespace HW_2_C_Sharp_Task_2
             int maxRow = (arrMinMaxItem[0, 0] > arrMinMaxItem[1, 0]) ? arrMinMaxItem[0, 0] : arrMinMaxItem[1, 0];
             int minCol = (arrMinMaxItem[0, 1] < arrMinMaxItem[1, 1]) ? arrMinMaxItem[0, 1] : arrMinMaxItem[1, 1];
             int maxCol = (arrMinMaxItem[0, 1] > arrMinMaxItem[1, 1]) ? arrMinMaxItem[0, 1] : arrMinMaxItem[1, 1];
+            Console.WriteLine($"min = {min} with row = {arrMinMaxItem[0, 0] + 1} and column = {arrMinMaxItem[0, 1] + 1}");
+            Console.WriteLine($"max = {max} with row = {arrMinMaxItem[1, 0] + 1} and column = {arrMinMaxItem[1, 1] + 1}");
+            if (minCol == 4)
+            {
+                minRow++;
+                minCol = 0;
+            }
+            else
+                minCol++;
             for (int i = minRow; i < row; i++)
             {
                 for (int j = minCol; j < col; j++)
                 {
-                    if (i > maxRow && j > maxCol)
-                        continue;
-                    summ +=arr[i, j];
-
+                    if (i >= maxRow && j >= maxCol)
+                    {
+                        i = 4;
+                        j = 4;
+                    }    
+                    else
+                        summ +=arr[i, j];
                 }
+                minCol = 0;
             }
-            Console.WriteLine($"min = {min} with i = {arrMinMaxItem[0, 0]+1} and j = {arrMinMaxItem[0, 1]+1}");
-            Console.WriteLine($"max = {max} with i = {arrMinMaxItem[1, 0]+1} and j = {arrMinMaxItem[1, 1]+1}");
             Console.WriteLine($"Summ = {summ}");
         }
     }
